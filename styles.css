@@ -1,3 +1,6 @@
+body {
+    font-family: hunter,robata, sans-serif;
+}
 .main {
     display: flex;
     flex-direction: column;
@@ -5,4 +8,12 @@
 }
 .header {
     font-size: 36px;
+}
+
+.splash{
+    display: flex;
+    
+}
+.dialog {
+    font-size: 24px;
 }

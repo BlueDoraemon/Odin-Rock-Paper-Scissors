@@ -9,8 +9,11 @@ let rock = 0;
 let scissors = 1;
 let paper = 2;
 
+let youScore = 0;
+let opponentScore = 0;
+
 function computerSelection() {
-    let choice = getComputerChoice();
+    const choice = getComputerChoice();
     if  (choice === 0) {
         return "Rock";
     }
@@ -24,55 +27,95 @@ function computerSelection() {
 }
 
 function rockPaperScissors(a){
-    a = a.toLowerCase();
+    const comp = computerSelection();
+    console.log(comp);
     if (a === "rock") {
-        if (computerSelection() === "Rock"){
+        if (comp === "Rock"){
             return "Draw! Player Rock draws to computer Rock"
         }
-        else if (computerSelection() === "Paper"){
-            return "You lose! Player Rock loses to compuer Paper"
+        else if (comp === "Paper"){
+            opponentScore++;
+            return "You lose! Player Rock loses to computer Paper"
         }
-        else if (computerSelection() === "Scissors"){
+        else if (comp === "Scissors"){
+            youScore++;
             return "You win! Player Rock beats the computer's Scissors"
         }
     } 
     else if (a === "scissors") {
-        if (computerSelection() === "Rock"){
+        if (comp === "Rock"){
+            opponentScore++;
             return "You lose! Player Scissors draws to computer Rock"
         }
-        else if (computerSelection() === "Paper"){
+        else if (comp === "Paper"){
+            youScore++;
             return "You Win! Player Scissors beats computer's Paper"
         }
-        else if (computerSelection() === "Scissors"){
+        else if (comp === "Scissors"){
             return "Draw! Player Scissors draws to the computer's Scissors"
         }
     
     }
 
     else if (a === "paper") {
-        if (computerSelection() === "Rock"){
+        if (comp === "Rock"){
+            youScore++;
             return "You win! Player Paper beats computer's Rock"
         }
-        else if (computerSelection() === "Paper"){
-            return "Draw! Player Paper draws to compuer Paper"
+        else if (comp === "Paper"){
+            return "Draw! Player Paper draws to computer Paper"
         }
-        else if (computerSelection() === "Scissors"){
+        else if (comp === "Scissors"){
+            opponentScore++;
             return "You lose! Player's Paper loses to the computer's Scissors"
         }
     }
 
     else {
-        return "Error"
+        return "Error";
     }
     
 }
 
-function game(){
-    //iteration 10
-    // for (let i = 1; i <= 5; i++ ) {
-    // playerSelection = prompt();
-    // console.log(rockPaperScissors(playerSelection));
-    // } 
+const buttons = document.querySelectorAll('button[data-move]');
+
+buttons.forEach(function(button) {
+  const yourMove = button.dataset.move;
+  button.addEventListener('click', function() {
+    console.log(rockPaperScissors(yourMove));
+ checkScore();
+  });
+});
+
+
+// on key clickdown run rockPaperScissors then run showResult then run showResult then run updateScore then checkScore 
+
+
+function showResult(str){
+
+} // display result div class hidden
+
+function updateScore(){
+
 }
-game();
+
+// If score of you is 5 you win if score of opponent is 5 you lose.
+function checkScore(youScore, opponentScore){
+    if (youScore === 5)
+        //you win
+
+    resetGame();
+    else if (opponentScore = 5) {
+
+        //you lose
+
+    resetGame();
+    }
+    else return;
+}
+
+function resetGame(){
+
+} // resets everything back to beggining
+
 
