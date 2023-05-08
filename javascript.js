@@ -69,10 +69,10 @@ function rockPaperScissors(a){
 
 function game(){
     //iteration 10
-    for (let i = 1; i <= 5; i++ ) {
-    playerSelection = prompt();
-    console.log(rockPaperScissors(playerSelection));
-    } 
+    // for (let i = 1; i <= 5; i++ ) {
+    // playerSelection = prompt();
+    // console.log(rockPaperScissors(playerSelection));
+    // } 
 }
 game();
 
