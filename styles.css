@@ -17,3 +17,19 @@ body {
 .dialog {
     font-size: 24px;
 }
+.hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 90px;
+    border: none;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(200, 130, 230, 0.5);
+    font-weight: 900;
+    font-size:48px;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+    display: none;    
+}
