@@ -1,21 +1,60 @@
 body {
     font-family: hunter,robata, sans-serif;
+    background-image: url(./images/background.jpg);
+    background-size : cover;
+    background-repeat: no-repeat;
 }
 .main {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    max-height: 600px;
 }
 .header {
-    font-size: 36px;
+    font-size: 12px;
+    justify-content: start;
+    background-color: aliceblue;
+    padding: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-shrink: 0;
+    min-width: 424px;
+
 }
 
 .splash{
     display: flex;
+    gap: 20px;
+    display: flex;
+    min-width: 529px;
+    flex-shrink: 0;
+    
+}
+.opponent{
+    width:250px;
+    height: auto;
+}
+.splash-right{
+    background-color:rgba(130, 230, 162, 0.5);
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: aliceblue;
+    height: fit-content;
+    padding: 12px;
+}
+
+.splash-right > .container {
+    display: flex;
+    gap: 20px;
+    color: aliceblue;
+}
+.yourscore .myscore {
+    font-size: 20px;
     
 }
 .dialog {
-    font-size: 24px;
+    font-size: 30px;
 }
 .hidden {
     position: absolute;
