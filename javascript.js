@@ -9,7 +9,7 @@ let rock = 0;
 let scissors = 1;
 let paper = 2;
 
-let youScore = 0;
+let yourScore = 0;
 let opponentScore = 0;
 
 function computerSelection() {
@@ -38,7 +38,7 @@ function rockPaperScissors(a){
             return "You lose! Player Rock loses to computer Paper"
         }
         else if (comp === "Scissors"){
-            youScore++;
+            yourScore++;
             return "You win! Player Rock beats the computer's Scissors"
         }
     } 
@@ -48,7 +48,7 @@ function rockPaperScissors(a){
             return "You lose! Player Scissors draws to computer Rock"
         }
         else if (comp === "Paper"){
-            youScore++;
+            yourScore++;
             return "You Win! Player Scissors beats computer's Paper"
         }
         else if (comp === "Scissors"){
@@ -59,7 +59,7 @@ function rockPaperScissors(a){
 
     else if (a === "paper") {
         if (comp === "Rock"){
-            youScore++;
+            yourScore++;
             return "You win! Player Paper beats computer's Rock"
         }
         else if (comp === "Paper"){
@@ -83,7 +83,9 @@ buttons.forEach(function(button) {
   const yourMove = button.dataset.move;
   button.addEventListener('click', function() {
     console.log(rockPaperScissors(yourMove));
- checkScore();
+    showResult();
+    updateScore();
+ checkScore(); //
   });
 });
 
@@ -96,16 +98,22 @@ function showResult(str){
 } // display result div class hidden
 
 function updateScore(){
+    const divYour = document.querySelector('.yourScore');
+    console.log(yourScore);
+    divYour.textContent = `${yourScore}`;
+
+    const divOpponent = document.querySelector('.opponentScore');
+    divOpponent.textContent = `54545 ${opponentScore}`;
 
 }
 
 // If score of you is 5 you win if score of opponent is 5 you lose.
-function checkScore(youScore, opponentScore){
-    if (youScore === 5)
+function checkScore(){
+    if (yourScore === 5)
         //you win
-
+    
     resetGame();
-    else if (opponentScore = 5) {
+    else if (opponentScore === 5) {
 
         //you lose
 
@@ -115,7 +123,18 @@ function checkScore(youScore, opponentScore){
 }
 
 function resetGame(){
+    yourScore = 0;
+    opponentScore = 0;
 
 } // resets everything back to beggining
+
+function showHidden(message){ // Input text from rock paper scissors
+    const hidden = document.querySelector('.hidden')
+    if (hidden.style.display === `none`) {
+         hidden.style.display = `flex`;
+         hidden.textContent = message;
+    }
+    else hidden.style.display = `none`;
+}
 
 
