@@ -11,6 +11,7 @@ let paper = 2;
 
 let yourScore = 0;
 let opponentScore = 0;
+updateScore();
 
 function computerSelection() {
     const choice = getComputerChoice();
@@ -38,7 +39,7 @@ function rockPaperScissors(a){
         }
         else if (comp === "Scissors"){
             yourScore++;
-            return "You win! Your Rock beats the Gon's's Scissors"
+            return "You win! Your Rock beats Gon's Scissors"
         }
     } 
     else if (a === "scissors") {
@@ -48,10 +49,10 @@ function rockPaperScissors(a){
         }
         else if (comp === "Paper"){
             yourScore++;
-            return "You Win! Your Scissors beats Gon's's Paper"
+            return "You Win! Your Scissors beats Gon's Paper"
         }
         else if (comp === "Scissors"){
-            return "Draw! Your Scissors draws to the Gon's's Scissors"
+            return "Draw! Your Scissors draws to Gon's Scissors"
         }
     
     }
@@ -101,7 +102,7 @@ function showResult(dialog){ // Input text from rock paper scissors
          console.log(dialog);
          setTimeout((e) => {
         hidden.style.display = `none`;
-        },1500 ) //1000 ms timeout
+        },2000 ) //2000 ms timeout
     }
     else hidden.style.display = `none`;
 } // display result div class hidden
@@ -116,26 +117,23 @@ function updateScore(){
 
 }
 
-function gonWin(){
-
-}
-
-function gonLose(){
-
-}
-
 // If score of you is 5 you win if score of opponent is 5 you lose.
 function checkScore(){
     if (yourScore === 5){
         
         //you win
-    showResult('You WIN!');
+        const opponent = document.querySelector('.opponent');
+        opponent.src = "./images/gon-lose.png";
     resetGame();
     }
     else if (opponentScore === 5) {
 
         //you lose
-    showResult('You LOSE!');
+        const win = document.querySelector(`.opponentScore`);
+        win.style.transform = 'scale(1.1)'
+        const opponent = document.querySelector('.opponent');
+        opponent.src = "./images/gon-win.png";
+
     resetGame();
     }
     else return;
@@ -144,6 +142,12 @@ function checkScore(){
 function resetGame(){
     yourScore = 0;
     opponentScore = 0;
+    const opponent = document.querySelector('.opponent');
+    setTimeout((e) => {
+    opponent.src = "./images/gon.png";
+    updateScore();
+    }, 5000);
+    
 
 } // resets everything back to beggining
 
